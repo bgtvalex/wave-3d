@@ -5,8 +5,8 @@ const clean = require('gulp-clean')
 const fs = require('fs')
 
 // HTMl
-const gulpPug = require('gulp-pug');
 const fileInclude = require('gulp-file-include')
+const gulpPug = require('gulp-pug');
 const htmlclean = require('gulp-htmlclean')
 const webpHTML = require('gulp-webp-html')
 
@@ -61,11 +61,15 @@ gulp.task('gulpPug:docs', function () {
   return gulp
     .src(['./src/html/**/*.pug', '!./src/html/blocks/*.html'])
     .pipe(gulpPug())
-    .pipe(changed('./docs/'))
+    // .pipe(changed('./docs/'))
+    // .pipe(plumber(plumberNotify('HTML')))
+    // .pipe(fileInclude(fileIncludeSettings))
+    // .pipe(webpHTML())
+    // .pipe(htmlclean())
+    // .pipe(gulp.dest('./docs/'))
+    .pipe(changed('./docs/', { hasChanged: changed.compareContents }))
     .pipe(plumber(plumberNotify('HTML')))
     .pipe(fileInclude(fileIncludeSettings))
-    .pipe(webpHTML())
-    .pipe(htmlclean())
     .pipe(gulp.dest('./docs/'))
 })
 
