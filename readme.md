@@ -1,6 +1,6 @@
 ## project: wave-3d
 
-* [demo]()
+* [demo](https://bgtvalex.github.io/wave-3d/)
 
 ### Technologies:
 *  HTML, CSS, PUG, SASS.
